@@ -1,4 +1,7 @@
-import OpenAI from 'openai';
+figma.showUI(__html__);
+
+
+const OpenAI = require('openai');
 
 require('dotenv').config()
 
@@ -17,10 +20,9 @@ async function main(prompt: string) {
   });
 }
 
-figma.showUI(__html__);
 figma.ui.onmessage = (msg) => {
 
-if (msg.type === 'run') {
+if (msg.type === 'generate-design') {
   main(msg.prompt).then((response) => {
   });
 }
