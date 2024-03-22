@@ -1,18 +1,19 @@
+figma.showUI(__html__);
+figma.ui.onmessage = () => {
 if (figma.editorType === 'figma') {
-  
   const nodes = [];
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 4; i++) {
   const circle = figma.createEllipse();
-  circle.x = i * 100; // Adjust the x position as needed
-  circle.y = 100; // Adjust the y position as needed
-  circle.resize(50, 50); // Set the circle size as needed
+  circle.x = i * 100;
+  circle.y = 100;
+  circle.resize(50, 50);
   nodes.push(circle);
 }
 
 figma.currentPage.selection = nodes;
 figma.viewport.scrollAndZoomIntoView(nodes);
-  
+}
+
   figma.closePlugin();
-  
-  }
+};
