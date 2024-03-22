@@ -1,25 +1,18 @@
-figma.showUI(__html__);
-// Calls to "parent.postMessage" from within the HTML page will trigger this
-// callback. The callback will be passed the "pluginMessage" property of the
-// posted message.
-figma.ui.onmessage =  (msg: {type: string, count: number}) => {
-  // One way of distinguishing between different types of messages sent from
-  // your HTML page is to use an object with a "type" property like this.
-  if (msg.type === 'create-rectangles') {
-    const nodes: SceneNode[] = [];
-    for (let i = 0; i < msg.count; i++) {
-      const rect = figma.createRectangle();
-      rect.x = i * 150;
-      rect.y = i * 150;
-      rect.fills = [{type: 'SOLID', color: {r: 1, g: 0.5, b: 0}}];
-      rect.resize(100, 100); // Adjust the size of the rect as needed
-      figma.currentPage.appendChild(rect);
-      nodes.push(rect);
-    }
-    figma.currentPage.selection = nodes;
-    figma.viewport.scrollAndZoomIntoView(nodes);
-  }
-  // Make sure to close the plugin when you're done. Otherwise, the plugin will
-  // keep running, which shows the cancel button at the bottom of the screen.
+if (figma.editorType === 'figma') {
+  
+  const nodes = [];
+
+for (let i = 0; i < 5; i++) {
+  const circle = figma.createEllipse();
+  circle.x = i * 100; // Adjust the x position as needed
+  circle.y = 100; // Adjust the y position as needed
+  circle.resize(50, 50); // Set the circle size as needed
+  nodes.push(circle);
+}
+
+figma.currentPage.selection = nodes;
+figma.viewport.scrollAndZoomIntoView(nodes);
+  
   figma.closePlugin();
-};
+  
+  }
