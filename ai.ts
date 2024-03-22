@@ -1,6 +1,6 @@
 import OpenAI from 'openai';
-
-require('dotenv').config()
+import dotenv from 'dotenv';
+dotenv.config();
 
 const openai = new OpenAI({
   apiKey: process.env['OPENAI_API_KEY'], // This is the default and can be omitted
@@ -19,29 +19,4 @@ export default async function main(prompt) {
   console.log(completion.choices[0]?.message?.content);
 }
 
-figma.showUI(__html__);
-figma.ui.onmessage = (msg) => {
-
-if (msg.type === 'run') {
-  main(msg.prompt).then((response) => {
-    console.log("Hello");
-  });
-}
-
-if (figma.editorType === 'figma') {
-  const nodes = [];
-
-for (let i = 0; i < 4; i++) {
-  const circle = figma.createEllipse();
-  circle.x = i * 100;
-  circle.y = 100;
-  circle.resize(50, 50);
-  nodes.push(circle);
-}
-
-figma.currentPage.selection = nodes;
-figma.viewport.scrollAndZoomIntoView(nodes);
-}
-
-  figma.closePlugin();
-};
+main("Create 5 circles in figma");
