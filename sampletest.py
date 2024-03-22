@@ -4,9 +4,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 client = OpenAI(
-    api_key="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"
+    api_key= os.getenv("OPENAI_API_KEY"),
 )
-
 
 def PrompttoFigma(text):
     try:
