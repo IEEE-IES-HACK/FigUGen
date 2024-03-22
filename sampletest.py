@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 client = OpenAI(
-    api_key=os.getenv("OPENAI_API_KEY")
+    api_key="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"
 )
 
 
@@ -24,6 +24,6 @@ def PrompttoFigma(text):
         print(f"An error occurred: {error}")
         return None
 
-prompt = "Create 5 circles in figma"
+prompt = "create 8 triangle shapes"
 figmacode = PrompttoFigma(prompt)
 print(figmacode)
