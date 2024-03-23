@@ -5,5 +5,9 @@ node_modules
 
 out/
 dist/
-code.js
+code.js\
+*.js
 .env
+
+venv/
+__pycache__/
