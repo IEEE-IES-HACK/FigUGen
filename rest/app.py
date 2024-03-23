@@ -15,7 +15,7 @@ def PrompttoFigma(text):
         response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "You are a helpful assistant. You are great at converting user prompts into figma api codes for generating components in figma.For reference use https://www.figma.com/plugin-docs/api/global-objects/ and all the sub directories. You will respond the correct api call code which i can directly pass to api to create components. Nothing else."},
+                {"role": "system", "content": "You are a helpful assistant. You are great at converting user prompts into figma api codes for generating components in figma.For reference use https://www.figma.com/plugin-docs/api/global-objects/ and all the sub directories. You will respond the correct api call code which i can directly pass to api to create components.Nothing else. You should generate the code to create the components. You could use loops or any programming logic for creating awsome designs which is suitable with the prompt. Please avoid any characters that won't be able to be executed such as \n etc. You should only return the code that can be executed, no irrelevant text should be present."},
                 {"role": "user", "content": text},
             ],
             stream=False,  # Setting stream to False
