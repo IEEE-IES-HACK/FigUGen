@@ -10,9 +10,9 @@
   ],
   "ui": "ui.html",
   "networkAccess": {
-    "allowedDomains": [
-      "none"
-    ]
+    "allowedDomains": ["none"],
+    "reasoning": "MyPlugin queries httpbin.org/get for example responses.",
+    "devAllowedDomains": ["http://localhost:5000" ]
   },
   "documentAccess": "dynamic-page"
 }
