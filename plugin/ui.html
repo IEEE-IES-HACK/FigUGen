@@ -1,4 +1,53 @@
-<h2>Figma Design Generator</h2>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+h2 {
+  color: #333;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+</style>
+</head>
+<body>
+
+<h2>FigUGen - Your Figma Designer</h2>
 <p>Enter your prompt:</p>
 <textarea id="prompt" rows="10" cols="40"></textarea>
 <div style="padding-top: 20px;">
@@ -29,3 +78,6 @@ document.getElementById('cancel').onclick = () => {
   generateButton.disabled = false;
 }
 </script>
+
+</body>
+</html>
